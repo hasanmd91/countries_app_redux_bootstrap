@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword } from "../auth/firebase";
+import { auth, loginWithEmailAndPassword } from "../auth/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,7 +29,7 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
       />
-      <Button onClick={() => logInWithEmailAndPassword(email, password)}>
+      <Button onClick={() => loginWithEmailAndPassword(email, password)}>
         Login
       </Button>
       <div>
