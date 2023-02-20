@@ -17,9 +17,50 @@ const firebaseConfig = {
   measurementId: "G-RJJ17E3BFR",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-// Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
+
+// signing in existing user
+const loginWithEmailAndPassword = async (email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    console.log(error);
+    alert(error.message);
+  }
+};
+
+// creating new user
+
+const registerWithEmailAndPassword = async (name, email, password) => {
+  const res = await createUserWithEmailAndPassword(name, email, password);
+  const user = res.user;
+
+  await addDoc(collection(db, "users "), {
+    uid: user.uid,
+    name,
+    authProvider: "local",
+    email,
+  });
+
+  try {
+  } catch (error) {
+    console.log(error);
+    alert(error.message);
+  }
+};
+
+// signing out
+
+const logout = () => {
+  signOut(auth);
+};
+
+export {
+  auth,
+  db,
+  logout,
+  loginWithEmailAndPassword,
+  registerWithEmailAndPassword,
+};

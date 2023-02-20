@@ -4,6 +4,9 @@ import Countries from "./components/Countries";
 import CountriesSingle from "./components/CountriesSingle";
 import Home from "./components/Home";
 import Layout from "./pages/Layout";
+import { Register } from "./components/Register";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./auth/firebase";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Favourites from "./components/Favourites";
