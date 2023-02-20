@@ -86,12 +86,9 @@ const Countries = () => {
                         <ListGroup.Item>
                           <i className="bi bi-translate me-2"></i>
                           <span>
-                            {
-                              country.languages
-                                ? Object.values(country.languages).join(", ")
-                                : "---"
-                              // Another way: {Object.values(country.languages) || {} }
-                            }
+                            {country.languages
+                              ? Object.values(country.languages).join(", ")
+                              : "---"}
                           </span>
                         </ListGroup.Item>
                         <ListGroup.Item>

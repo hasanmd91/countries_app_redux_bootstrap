@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
@@ -24,8 +25,15 @@ const Layout = () => {
                 <LinkContainer to="/Favourites ">
                   <Nav.Link>Favourites</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/register">
+                  <Nav.Link>Register</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/login">
+                  <Nav.Link>Login</Nav.Link>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
+            <Button onClick={() => {}}>Logout</Button>
           </Container>
         </Navbar>
       </Row>
