@@ -11,6 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { initializeCountries } from "../features/countries/countriesSlice";
 import { Spinner } from "react-bootstrap";
+import { addFavourite } from "../features/countries/favouritesSlice";
+
+const numFormatter = require("@skalwar/simple_number_formatter");
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -43,17 +46,24 @@ const Countries = () => {
         <Row xs={2} md={3} lg={4} className=" g-3">
           {countriesList
             .filter(
-              (c) =>
-                c.name.official.toLowerCase().includes(search.toLowerCase()) ||
-                c.name.common.toLowerCase().includes(search.toLowerCase())
+              (country) =>
+                country.name.official
+                  .toLowerCase()
+                  .includes(search.toLowerCase()) ||
+                country.name.common.toLowerCase().includes(search.toLowerCase())
             )
             .map((country) => (
               <Col key={country.name.official} className="mt-5">
-                <LinkContainer
-                  to={`/countries/${country.name.common}`}
-                  state={{ country: country }}
-                >
-                  <Card className="h-100">
+                <Card className="h-100">
+                  <i
+                    className="bi bi-heart-fill text-danger m-1 p-1"
+                    onClick={() => dispatch(addFavourite(country.name.common))}
+                  ></i>
+
+                  <LinkContainer
+                    to={`/countries/${country.name.common}`}
+                    state={{ country: country }}
+                  >
                     <Card.Body className="d-flex flex-column">
                       <Card.Title>{country.name.common}</Card.Title>
                       <Card.Subtitle className="mb-5 text-muted">
@@ -62,6 +72,12 @@ const Countries = () => {
                       <Card.Img
                         src={country?.flags?.svg}
                         alt={country.name.common}
+                        className="rounded h-50"
+                        style={{
+                          objectFit: "cover",
+                          minHeight: "200px",
+                          maxHeight: "200px",
+                        }}
                       />
                       <ListGroup
                         variant="flush"
@@ -90,14 +106,12 @@ const Countries = () => {
                         </ListGroup.Item>
                         <ListGroup.Item>
                           <i className="bi bi-people me-2"></i>
-                          <span>
-                            {country.population.toLocaleString("fi-FI")}
-                          </span>
+                          <span>{numFormatter(country.population)}</span>
                         </ListGroup.Item>
                       </ListGroup>
                     </Card.Body>
-                  </Card>
-                </LinkContainer>
+                  </LinkContainer>
+                </Card>
               </Col>
             ))}
         </Row>
