@@ -11,10 +11,12 @@ const CountriesSingle = () => {
   const [error, setError] = useState(false);
   const [loading, setisLoading] = useState(true);
 
+  console.log(country.capital);
+
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=${process.env.REACT_APP_OPEN_WEATHERKEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=41b01863299f8d6f641b250a5179d39f`
       )
       .then((res) => {
         console.log(res);

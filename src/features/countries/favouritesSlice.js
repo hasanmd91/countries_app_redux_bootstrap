@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "@testing-library/react";
 
 const favourites =
   localStorage.getItem("Favourites") !== null
@@ -19,9 +20,17 @@ export const favouritesSlice = createSlice({
       localStorage.removeItem("Favourites");
       state.favourites = [];
     },
+
+    clearOneFavourites(state, action) {
+      state.favourites = state.favourites.filter(
+        (favourites) => favourites !== action.payload
+      );
+      localStorage.setItem("Favourites", JSON.stringify(state.favourites));
+    },
   },
 });
 
-export const { addFavourite, clearFavourites } = favouritesSlice.actions;
+export const { addFavourite, clearFavourites, clearOneFavourites } =
+  favouritesSlice.actions;
 
 export default favouritesSlice.reducer;
