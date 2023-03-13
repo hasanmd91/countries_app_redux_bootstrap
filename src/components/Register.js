@@ -10,7 +10,7 @@ const Register = () => {
   const [name, setName] = useState("");
   //useAuthState hook to listen for changes to the authentication state of the user
   //and returns an array that contains the current user object and a boolean indicating whether the user is currently authenticated.
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   const register = () => {
