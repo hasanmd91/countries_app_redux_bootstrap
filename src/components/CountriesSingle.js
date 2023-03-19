@@ -64,13 +64,10 @@ const CountriesSingle = () => {
               />
             </div>
           )}
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Button variant="light" onClick={() => navigate("/countries")}>
-            Go back
-          </Button>
+
+          <Col>
+            <Button onClick={() => navigate("/countries")}>Go back</Button>
+          </Col>
         </Col>
       </Row>
     </Container>

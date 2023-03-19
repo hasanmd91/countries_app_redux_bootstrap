@@ -7,6 +7,7 @@ const getAll = async () => {
   return response.data;
 };
 
+console.log(getAll());
 const exportedObject = { getAll };
 
 export default exportedObject;
