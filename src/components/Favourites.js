@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
+import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { initializeCountries } from "../features/countries/countriesSlice";
@@ -22,7 +23,6 @@ const Favourites = () => {
   const loading = useSelector((state) => state.countries.isLoading);
   const [search, setSearch] = useState("");
   const favouritesList = useSelector((state) => state.favourites.favourites);
-  console.log(favouritesList);
   if (favouritesList !== null) {
     countriesList = countriesList.filter((c) =>
       favouritesList.includes(c.name.common)
@@ -34,6 +34,9 @@ const Favourites = () => {
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
+
+  const notify = () => toast("Removed from the list!");
+  const allClear = () => toast("All Removed!");
 
   if (loading) {
     return (
@@ -119,6 +122,7 @@ const Favourites = () => {
                     className="shadow-none"
                     onClick={() => {
                       dispatch(clearOneFavourites(country.name.common));
+                      notify();
                     }}
                   >
                     Remove
@@ -140,6 +144,7 @@ const Favourites = () => {
             className="shadow-none"
             onClick={() => {
               dispatch(clearFavourites());
+              allClear();
             }}
           >
             Clear All Favorites
