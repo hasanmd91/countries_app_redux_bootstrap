@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+const numFormatter = require("@skalwar/simple_number_formatter");
 
 const CountriesSingle = () => {
   const location = useLocation();
@@ -11,20 +12,17 @@ const CountriesSingle = () => {
   const [error, setError] = useState(false);
   const [loading, setisLoading] = useState(true);
 
-  console.log(country.capital);
-
   useEffect(() => {
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=41b01863299f8d6f641b250a5179d39f`
       )
       .then((res) => {
-        console.log(res);
         setweather(res.data);
         setisLoading(false);
       })
-      .catch((error) => console.log(error), setError(error));
-  }, [country.capital, error]);
+      .catch((error) => setError(error));
+  }, [country.capital]);
 
   if (loading)
     return (
@@ -43,14 +41,36 @@ const CountriesSingle = () => {
     <Container>
       <Row className="m-5">
         <Col>
-          <Image
-            thumbnail
-            src={`https://source.unsplash.com/featured/1600x900?${country.cpaital}`}
-          />
+          <Image thumbnail src={country.flags.svg} />
         </Col>
         <Col>
-          <h2 className="display-4">{country.name.common} </h2>
-          <h3>{country.capital}</h3>
+          <h2
+            style={{
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundImage: "linear-gradient(to right, #f00, #00f)",
+              fontWeight: "900",
+              fontSize: "45px",
+            }}
+          >
+            {country.name.common}{" "}
+          </h2>
+          <h6>Capital: {country.capital}</h6>
+          <h6>
+            Population:
+            <span>{numFormatter(country.population)}</span>
+          </h6>
+          <h6>
+            {" "}
+            Currencies:
+            <span>
+              {Object.values(country.currencies || {})
+                .map((currency) => currency.name)
+                .join(", ")}
+            </span>
+          </h6>
+          <h6>Languages:{Object.values(country.languages ?? {}).join(", ")}</h6>
+
           {!error && weather && (
             <div>
               <p>

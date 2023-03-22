@@ -9,7 +9,6 @@ import Login from "./components/Login";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./auth/firebase";
 import ProtectedRoute from "./auth/ProtectedRoute";
-
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Favourites from "./components/Favourites";
 

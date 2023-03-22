@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -12,6 +11,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { initializeCountries } from "../features/countries/countriesSlice";
 import { Button, Spinner } from "react-bootstrap";
 import { addFavourite } from "../features/countries/favouritesSlice";
+import { toast } from "react-toastify";
 
 const numFormatter = require("@skalwar/simple_number_formatter");
 
@@ -24,6 +24,8 @@ const Countries = () => {
   useEffect(() => {
     dispatch(initializeCountries());
   }, [dispatch]);
+
+  const notify = () => toast("Added to favourites!");
 
   if (loading) return <Spinner animation="border" />;
   else
@@ -99,9 +101,10 @@ const Countries = () => {
                     </ListGroup>
                     <Button
                       className="mb-1 shadow-none"
-                      onClick={() =>
-                        dispatch(addFavourite(country.name.common))
-                      }
+                      onClick={() => {
+                        dispatch(addFavourite(country.name.common));
+                        notify();
+                      }}
                     >
                       {" "}
                       Add Favourites
