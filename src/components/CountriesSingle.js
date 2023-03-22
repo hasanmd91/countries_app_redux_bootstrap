@@ -12,8 +12,6 @@ const CountriesSingle = () => {
   const [error, setError] = useState(false);
   const [loading, setisLoading] = useState(true);
 
-  console.log(country);
-
   useEffect(() => {
     axios
       .get(
@@ -24,7 +22,7 @@ const CountriesSingle = () => {
         setisLoading(false);
       })
       .catch((error) => setError(error));
-  }, [country.capital, error]);
+  }, [country.capital]);
 
   if (loading)
     return (
