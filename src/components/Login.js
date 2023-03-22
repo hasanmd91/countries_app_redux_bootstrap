@@ -32,7 +32,7 @@ const Login = () => {
       <Row>
         <Col col="8" md="7">
           <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
             className="img-fluid"
             alt="Phone image"
           />

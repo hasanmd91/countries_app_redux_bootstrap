@@ -33,21 +33,16 @@ const Register = () => {
   }, [user, loading, navigate]);
 
   return (
-    <Container
-      fluid
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
+    <Container fluid className="p-5">
       <Row>
-        <Col
-          md="10"
-          lg="6"
-          className="my-auto order-2 order-lg-1 d-flex flex-column align-items-center"
-        >
+        <Col col="8" md="7">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+            className="img-fluid"
+            alt="Phone image"
+          />
+        </Col>
+        <Col col="4" md="5" className="my-auto">
           <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
             Sign up
           </p>
@@ -102,17 +97,6 @@ const Register = () => {
             Already have an account?
             <Link to="/login">Login</Link> now.
           </div>
-        </Col>
-
-        <Col
-          md="10"
-          lg="6"
-          className="order-1 order-lg-2 d-flex align-items-center justify-content-center"
-        >
-          <Card.Img
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-            fluid
-          />
         </Col>
       </Row>
     </Container>

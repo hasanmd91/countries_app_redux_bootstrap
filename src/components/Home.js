@@ -28,8 +28,8 @@ const Home = () => {
       >
         Ready to See the World? Let's Embark on an Adventure!
       </h5>
-      <LinkContainer to="/login ">
-        <Button size="lg"> Lets Get Started </Button>
+      <LinkContainer to="/register ">
+        <Button size="lg"> Register </Button>
       </LinkContainer>
     </Container>
   );
