@@ -17,6 +17,8 @@ This app allows user to add their favorite countries to a dedicated favorites li
 
 ## Deployment
 
+Live page [here](https://explorecountriesaroundtheglobe.netlify.app/)
+
 ## Installation
 
 ```bash
