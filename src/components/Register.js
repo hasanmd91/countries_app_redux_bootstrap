@@ -49,7 +49,7 @@ const Register = () => {
             <Form.Group className="mb-4">
               <InputGroup>
                 <InputGroup.Text>
-                  <i class="bi bi-person-circle"></i>
+                  <i className="bi bi-person-circle"></i>
                 </InputGroup.Text>
                 <FormControl
                   placeholder="Your Name"
