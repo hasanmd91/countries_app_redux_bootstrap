@@ -1,13 +1,11 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import { Row, Nav } from "react-bootstrap";
+import { Row, Nav, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { logout } from "../auth/firebase";
+import { logout, auth } from "../auth/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../auth/firebase";
 
 const Layout = () => {
   const Navigate = useNavigate();
