@@ -51,10 +51,10 @@ https://restcountries.com/v3.1/all
 
 ## Screenshots
 
-<img src="assets/React_App.png"/>
-<img src="assets/React-App1.png"/>
-<img src="assets/React-App2.png"/>
-<img src="assets/React-App3.png"/>
+<img src="assets/1.png" alt="country_app"/>
+<img src="assets/2.png" alt="country_app"/>
+<img src="assets/3.png" alt="country_app"/>
+<img src="assets/4.png" alt="country_app"/>
 
 ## Authors
 

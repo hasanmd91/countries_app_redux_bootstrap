@@ -7,7 +7,6 @@ const ProtectedRoute = ({ user, children }) => {
     // Navigate is a part of react router dom it can be used to navigate to the different pages in the application
     // the replace props is used to prevent the user to go to protected page using browser back button after they have been redirect the login page
   }
-
   return <Outlet />;
 };
 
