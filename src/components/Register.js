@@ -38,7 +38,7 @@ const Register = () => {
           <img
             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
             className="img-fluid"
-            alt="Phone image"
+            alt="register"
           />
         </Col>
         <Col col="4" md="5" className="my-auto">
