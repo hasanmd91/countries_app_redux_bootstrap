@@ -19,11 +19,12 @@ const Home = () => {
       <h5
         className="mb-5"
         style={{
+          fontFamily: "Poppins Black 900, sans-serif",
+          fontWeight: "900",
+          fontSize: "40px",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundImage: "linear-gradient(to right, #f00, #00f)",
-          fontWeight: "900",
-          fontSize: "35px",
         }}
       >
         Ready to See the World? Let's Embark on an Adventure!

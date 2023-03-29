@@ -10,7 +10,6 @@ import {
   Form,
   InputGroup,
   FormControl,
-  Card,
 } from "react-bootstrap";
 
 const Register = () => {
@@ -22,8 +21,9 @@ const Register = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const register = () => {
-    if (!name) alert("please your name");
+  const register = (e) => {
+    e.preventDefault();
+    if (!name) alert("no name");
     registerWithEmailAndPassword(name, email, password);
   };
 

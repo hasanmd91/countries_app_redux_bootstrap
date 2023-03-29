@@ -34,6 +34,7 @@ const loginWithEmailAndPassword = async (email, password) => {
 // creating new user
 
 const registerWithEmailAndPassword = async (name, email, password) => {
+  console.log(name, email, password);
   const res = await createUserWithEmailAndPassword(auth, email, password);
   const user = res.user;
   await addDoc(collection(db, "users "), {
