@@ -49,9 +49,7 @@ const Register = () => {
           <Form onSubmit={register}>
             <Form.Group className="mb-4">
               <InputGroup>
-                <InputGroup.Text>
-                  <i className="fas fa-user me-3"></i>
-                </InputGroup.Text>
+                <InputGroup.Text></InputGroup.Text>
                 <FormControl
                   placeholder="Your Name"
                   value={name}
@@ -63,9 +61,7 @@ const Register = () => {
 
             <Form.Group className="mb-4">
               <InputGroup>
-                <InputGroup.Text>
-                  <i className="fas fa-envelope me-3"></i>
-                </InputGroup.Text>
+                <InputGroup.Text></InputGroup.Text>
                 <FormControl
                   type="email"
                   placeholder="Your Email"
@@ -77,9 +73,7 @@ const Register = () => {
 
             <Form.Group className="mb-4">
               <InputGroup>
-                <InputGroup.Text>
-                  <i className="fas fa-lock me-3"></i>
-                </InputGroup.Text>
+                <InputGroup.Text></InputGroup.Text>
                 <FormControl
                   type="password"
                   value={password}
