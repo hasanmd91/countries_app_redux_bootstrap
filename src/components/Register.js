@@ -20,7 +20,6 @@ const Register = () => {
   //and returns an array that contains the current user object and a boolean indicating whether the user is currently authenticated.
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
-
   const register = (e) => {
     e.preventDefault();
     if (!name) alert("no name");
@@ -49,7 +48,9 @@ const Register = () => {
           <Form onSubmit={register}>
             <Form.Group className="mb-4">
               <InputGroup>
-                <InputGroup.Text></InputGroup.Text>
+                <InputGroup.Text>
+                  <i class="bi bi-person-circle"></i>
+                </InputGroup.Text>
                 <FormControl
                   placeholder="Your Name"
                   value={name}
@@ -61,7 +62,10 @@ const Register = () => {
 
             <Form.Group className="mb-4">
               <InputGroup>
-                <InputGroup.Text></InputGroup.Text>
+                <InputGroup.Text>
+                  {" "}
+                  <i className="bi bi-envelope-fill"></i>
+                </InputGroup.Text>
                 <FormControl
                   type="email"
                   placeholder="Your Email"
@@ -73,7 +77,10 @@ const Register = () => {
 
             <Form.Group className="mb-4">
               <InputGroup>
-                <InputGroup.Text></InputGroup.Text>
+                <InputGroup.Text>
+                  {" "}
+                  <i className="bi bi-shield-lock-fill"></i>
+                </InputGroup.Text>
                 <FormControl
                   type="password"
                   value={password}

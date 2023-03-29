@@ -14,7 +14,6 @@ import Favourites from "./components/Favourites";
 
 const App = () => {
   const [user] = useAuthState(auth);
-  console.log(user);
   return (
     <BrowserRouter>
       <Routes>

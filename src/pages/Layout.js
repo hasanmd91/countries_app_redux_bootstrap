@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -11,6 +11,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../auth/firebase";
 
 const Layout = () => {
+  const Navigate = useNavigate();
+
   const [user] = useAuthState(auth);
   return (
     <Container fluid>
@@ -23,21 +25,21 @@ const Layout = () => {
                 <LinkContainer to="/">
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/countries">
-                  <Nav.Link>Countries</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/Favourites ">
-                  <Nav.Link>Favourites</Nav.Link>
-                </LinkContainer>
-
-                <LinkContainer to="/login">
-                  <Nav.Link>Login</Nav.Link>
-                </LinkContainer>
+                {user && (
+                  <>
+                    <LinkContainer to="/countries">
+                      <Nav.Link>Countries</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/favourites">
+                      <Nav.Link>Favourites</Nav.Link>
+                    </LinkContainer>
+                  </>
+                )}
               </Nav>
             </Navbar.Collapse>
-
             <Button variant="outlined"> {user?.email} </Button>
-            <Button onClick={() => logout()}>Logout</Button>
+            {user && <Button onClick={() => logout()}>Logout</Button>}
+            {!user && <Button onClick={() => Navigate("/login")}>Login</Button>}
           </Container>
         </Navbar>
       </Row>
