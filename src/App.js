@@ -14,6 +14,7 @@ import Favourites from "./components/Favourites";
 
 const App = () => {
   const [user] = useAuthState(auth);
+  console.log(user);
   return (
     <BrowserRouter>
       <Routes>
@@ -21,7 +22,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/countries" element={<Countries />} />
             <Route path="/Favourites" element={<Favourites />} />
