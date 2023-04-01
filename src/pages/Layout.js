@@ -11,7 +11,7 @@ const Layout = () => {
   const [user] = useAuthState(auth);
   return (
     <Container fluid>
-      <Row>
+      <Row className="shadow-sm">
         <Navbar bg="light" variant="light">
           <Container className="justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

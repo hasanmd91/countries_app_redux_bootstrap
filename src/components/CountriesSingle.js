@@ -115,7 +115,7 @@ const CountriesSingle = () => {
               <img
                 src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                 alt={weather.weather[0].description}
-                className="img-thumbnail shadow-lg mb-4"
+                className="img-thumbnail  shadow-lg mb-4"
               />
             </div>
           )}
