@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import ListGroup from "react-bootstrap/ListGroup";
-import Row from "react-bootstrap/Row";
+import React, { useState, useEffect } from "react";
+import { Card, Col, Container, Form, ListGroup, Row ,Button, Spinner} from "react-bootstrap"; // prettier-ignore
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { initializeCountries } from "../features/countries/countriesSlice";
-import { Button, Spinner } from "react-bootstrap";
 import { addFavourite } from "../features/countries/favouritesSlice";
 import { toast } from "react-toastify";
 

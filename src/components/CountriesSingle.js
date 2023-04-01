@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap";
 import axios from "axios";
+import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap"; //// prettier-ignore
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 const numFormatter = require("@skalwar/simple_number_formatter");

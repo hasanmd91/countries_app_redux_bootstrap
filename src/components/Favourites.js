@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Spinner } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import ListGroup from "react-bootstrap/ListGroup";
-import Row from "react-bootstrap/Row";
+import { Button, Spinner, Card, Col, Container, Form, ListGroup, Row } from "react-bootstrap"; // prettier-ignore
+
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
