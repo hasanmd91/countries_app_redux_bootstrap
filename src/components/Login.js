@@ -61,6 +61,7 @@ const Login = () => {
                 <FormControl
                   type="password"
                   placeholder="Password"
+                  autoComplete="current-password"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </InputGroup>

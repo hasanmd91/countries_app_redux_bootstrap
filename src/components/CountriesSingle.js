@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap";
 import axios from "axios";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 const numFormatter = require("@skalwar/simple_number_formatter");
 
@@ -15,13 +15,17 @@ const CountriesSingle = () => {
 
   const countriesList = useSelector((state) => state.countries.countries);
 
+  console.log(country);
+
   const borderCountry = (border) => {
-    const country = countriesList.find((c) =>
-      c.name.common.toLowerCase().includes(border.toLowerCase())
-    );
+    console.log(border);
+
+    let country = countriesList.find((c) => c.cca3?.includes(border));
+
     if (country) {
       navigate(`/countries/${country.name.common}`, { state: { country } });
     }
+    return;
   };
 
   useEffect(() => {
@@ -54,7 +58,8 @@ const CountriesSingle = () => {
     <Container>
       <Row className="m-5">
         <Col>
-          <Image thumbnail src={country.flags.svg} className="mb-3" />
+          <Image thumbnail fluid src={country.flags.svg} className="mb-3" />
+
           {!error && weather && (
             <div>
               <p>
@@ -65,6 +70,7 @@ const CountriesSingle = () => {
               <img
                 src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                 alt={weather.weather[0].description}
+                className="img-thumbnail shadow-lg"
               />
             </div>
           )}
@@ -83,12 +89,12 @@ const CountriesSingle = () => {
             {country.name.common}{" "}
           </h2>
           <h6>Capital: {country.capital}</h6>
+          <h6>continents: {country.continents?.map((c) => c).join(", ")}</h6>
           <h6>
             Population:
             <span>{numFormatter(country.population)}</span>
           </h6>
           <h6>
-            {" "}
             Currencies:
             <span>
               {Object.values(country.currencies || {})
