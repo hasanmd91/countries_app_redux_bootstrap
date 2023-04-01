@@ -59,21 +59,6 @@ const CountriesSingle = () => {
       <Row className="m-5">
         <Col>
           <Image thumbnail fluid src={country.flags.svg} className="mb-3" />
-
-          {!error && weather && (
-            <div>
-              <p>
-                Right now it is <strong>{parseInt(weather.main.temp)}</strong>{" "}
-                degrees in {country.capital} and{" "}
-                {weather.weather[0].description}
-              </p>
-              <img
-                src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                alt={weather.weather[0].description}
-                className="img-thumbnail shadow-lg"
-              />
-            </div>
-          )}
         </Col>
 
         <Col>
@@ -111,7 +96,7 @@ const CountriesSingle = () => {
             {country?.borders
               ? country?.borders.map((border) => (
                   <Button
-                    className="btn-light btn-sm mx-2 mb-2 shadow-lg "
+                    className="btn-dark btn-sm mx-2 mb-2 shadow-lg px-4 "
                     key={border}
                     onClick={() => borderCountry(border)}
                   >
@@ -120,13 +105,28 @@ const CountriesSingle = () => {
                 ))
               : " No info found"}
           </div>
+          {!error && weather && (
+            <div>
+              <p>
+                Right now it is <strong>{parseInt(weather.main.temp)}</strong>{" "}
+                degrees in {country.capital} and{" "}
+                {weather.weather[0].description}
+              </p>
+              <img
+                src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                alt={weather.weather[0].description}
+                className="img-thumbnail shadow-lg mb-4"
+              />
+            </div>
+          )}
+
           <Button
             className="btn-sm"
             onClick={() => {
               navigate(-1);
             }}
           >
-            Go back
+            Go Back
           </Button>
         </Col>
       </Row>

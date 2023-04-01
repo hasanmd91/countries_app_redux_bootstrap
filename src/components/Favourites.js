@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button, Spinner, Card, Col, Container, Form, ListGroup, Row } from "react-bootstrap"; // prettier-ignore
-
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
