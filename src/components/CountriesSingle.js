@@ -9,19 +9,15 @@ const CountriesSingle = () => {
   const location = useLocation();
   const country = location.state.country;
   const navigate = useNavigate();
+
   const [weather, setweather] = useState("");
   const [error, setError] = useState(false);
   const [loading, setisLoading] = useState(true);
 
   const countriesList = useSelector((state) => state.countries.countries);
 
-  console.log(country);
-
   const borderCountry = (border) => {
-    console.log(border);
-
     let country = countriesList.find((c) => c.cca3?.includes(border));
-
     if (country) {
       navigate(`/countries/${country.name.common}`, { state: { country } });
     }
@@ -31,9 +27,10 @@ const CountriesSingle = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=41b01863299f8d6f641b250a5179d39f`
+        `https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
       )
       .then((res) => {
+        console.log(res.data);
         setweather(res.data);
         setisLoading(false);
       })
@@ -107,11 +104,15 @@ const CountriesSingle = () => {
           </div>
           {!error && weather && (
             <div>
-              <p>
-                Right now it is <strong>{parseInt(weather.main.temp)}</strong>{" "}
-                degrees in {country.capital} and{" "}
-                {weather.weather[0].description}
-              </p>
+              <div>
+                <span>
+                  Right now it is <strong>{parseInt(weather.main.temp)}</strong>{" "}
+                  feels like degrees in {country.capital} and feels like
+                  <strong> {parseInt(weather.main.feels_like)} </strong>
+                </span>
+                <span>{weather.weather[0].description}</span> and
+                <span> Wind {weather.wind.speed} m/s</span>
+              </div>
               <img
                 src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                 alt={weather.weather[0].description}
